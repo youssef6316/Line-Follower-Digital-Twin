@@ -1,0 +1,77 @@
+# vsiBuildCommands — Line-Following Robot Digital Twin
+# Run with:  vsiBuild -f vsiBuildCommands
+
+# ── Step 1: Define components ─────────────────────────────────────────────────
+add component -type Python -name simulator
+add component -type Python -name controller
+add component -type Python -name visualizer
+
+# ── Step 2: Add ports ─────────────────────────────────────────────────────────
+add port -componentName simulator  -name simulator  -gateway python2DtCan
+add port -componentName controller -name controller -gateway python2DtCan
+add port -componentName visualizer -name visualizer -gateway python2DtCan
+
+# ── Step 3: Server IP — change to your machine IP (run: hostname -I) ──────────
+set serverIpAddress 10.10.8.188
+
+# ── Step 4: Define signals — no quotes, no spaces after commas ───────────────
+
+define componentSignals -componentName simulator -signals [x:double:output,y:double:output,theta:double:output,x_true:double:output,y_true:double:output,theta_true:double:output,sim_time:double:output,path_progress:double:output,v_cmd:double:input,omega_cmd:double:input]
+
+define componentSignals -componentName controller -signals [x:double:input,y:double:input,theta:double:input,sim_time:double:input,path_progress:double:input,v_cmd:double:output,omega_cmd:double:output,e_lat:double:output,e_head:double:output]
+
+define componentSignals -componentName visualizer -signals [x:double:input,y:double:input,theta:double:input,x_true:double:input,y_true:double:input,theta_true:double:input,sim_time:double:input,path_progress:double:input,v_cmd:double:input,omega_cmd:double:input,e_lat:double:input,e_head:double:input]
+
+# ── Step 5: Define CAN frames — use -id not -canId ───────────────────────────
+
+define frame -componentName simulator  -portName simulator  -id 10 -signals [x:0:64]
+define frame -componentName controller -portName controller -id 10 -signals [x:0:64]
+define frame -componentName visualizer -portName visualizer -id 10 -signals [x:0:64]
+
+define frame -componentName simulator  -portName simulator  -id 11 -signals [y:0:64]
+define frame -componentName controller -portName controller -id 11 -signals [y:0:64]
+define frame -componentName visualizer -portName visualizer -id 11 -signals [y:0:64]
+
+define frame -componentName simulator  -portName simulator  -id 12 -signals [theta:0:64]
+define frame -componentName controller -portName controller -id 12 -signals [theta:0:64]
+define frame -componentName visualizer -portName visualizer -id 12 -signals [theta:0:64]
+
+define frame -componentName simulator  -portName simulator  -id 13 -signals [x_true:0:64]
+define frame -componentName visualizer -portName visualizer -id 13 -signals [x_true:0:64]
+
+define frame -componentName simulator  -portName simulator  -id 14 -signals [y_true:0:64]
+define frame -componentName visualizer -portName visualizer -id 14 -signals [y_true:0:64]
+
+define frame -componentName simulator  -portName simulator  -id 15 -signals [theta_true:0:64]
+define frame -componentName visualizer -portName visualizer -id 15 -signals [theta_true:0:64]
+
+define frame -componentName simulator  -portName simulator  -id 16 -signals [sim_time:0:64]
+define frame -componentName controller -portName controller -id 16 -signals [sim_time:0:64]
+define frame -componentName visualizer -portName visualizer -id 16 -signals [sim_time:0:64]
+
+define frame -componentName simulator  -portName simulator  -id 17 -signals [path_progress:0:64]
+define frame -componentName controller -portName controller -id 17 -signals [path_progress:0:64]
+define frame -componentName visualizer -portName visualizer -id 17 -signals [path_progress:0:64]
+
+define frame -componentName controller -portName controller -id 18 -signals [v_cmd:0:64]
+define frame -componentName simulator  -portName simulator  -id 18 -signals [v_cmd:0:64]
+define frame -componentName visualizer -portName visualizer -id 18 -signals [v_cmd:0:64]
+
+define frame -componentName controller -portName controller -id 19 -signals [omega_cmd:0:64]
+define frame -componentName simulator  -portName simulator  -id 19 -signals [omega_cmd:0:64]
+define frame -componentName visualizer -portName visualizer -id 19 -signals [omega_cmd:0:64]
+
+define frame -componentName controller -portName controller -id 20 -signals [e_lat:0:64]
+define frame -componentName visualizer -portName visualizer -id 20 -signals [e_lat:0:64]
+
+define frame -componentName controller -portName controller -id 21 -signals [e_head:0:64]
+define frame -componentName visualizer -portName visualizer -id 21 -signals [e_head:0:64]
+
+# ── Step 6: Global parameters ─────────────────────────────────────────────────
+set totalSimTime 60 s
+set simulationStep 0.01 s
+set workspaceDir .
+set digitalTwinName lineFollowerDt
+
+# ── Step 7: Generate ──────────────────────────────────────────────────────────
+generate
