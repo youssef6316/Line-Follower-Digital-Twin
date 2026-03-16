@@ -1,0 +1,54 @@
+Script started on 2026-03-16 16:58:11+00:00 [TERM="xterm" TTY="/dev/pts/6" COLUMNS="80" LINES="24"]
+make[1]: Entering directory '/home/ubuntu/Youssef_Yacoub/Line-Follower-Digital-Twin/lineFollowerDt'
+python3 .//src/controller/controller.py --domain="AF_UNIX" --server-url="localhost"
+[Controller] Initialised with gains: G3_baseline
++=+ XLVIP-INFO: XlTlmMessageLayer::connectToServer():
++=+    Connecting clientId=':remoteSession1' to 'server@localhost' ...
++=+    Successfully connected 'client :remoteSession1' to 'server@localhost'
++=+    Negotiated socket connection configuration
++=+        Use socket manager thread=FALSE
++=+        Use TCP_NODELAY=TRUE
++=+        Use UDP=FALSE
++=+ XLVIP-INFO: XlTlmMessageLayer::connect():
++=+    Successfully connected this remote client conduit into the TLM fabric server:
++=+        clientId=:remoteSession1
++=+        conduitId=:timeServerConduit1
+           localClientConduitHandle=0x62cf4e9237e8
+           remoteServerProxyConduitHandle=0x3bd03a10
++=+ XLVIP-INFO: XlTlmMessageLayer::connect():
++=+    Successfully connected this remote client conduit into the TLM fabric server:
++=+        clientId=:remoteSession1
++=+        conduitId=:resetServerConduit1
+           localClientConduitHandle=0x62cf4e945408
+           remoteServerProxyConduitHandle=0x3bcffc20
++=+ XLVIP-INFO: XlTlmMessageLayer::connect():
++=+    Successfully connected this remote client conduit into the TLM fabric server:
++=+        clientId=:remoteSession1
++=+        conduitId=:txConfigPort1
+           localClientConduitHandle=0x62cf4ea99f20
+           remoteServerProxyConduitHandle=0x3bd12390
++=+ XLVIP-INFO: XlTlmMessageLayer::connect():
++=+    Successfully connected this remote client conduit into the TLM fabric server:
++=+        clientId=:remoteSession1
++=+        conduitId=:rxConfigPort1
+           localClientConduitHandle=0x62cf4e6b89b0
+           remoteServerProxyConduitHandle=0x3bd0e790
++=+ INFO: ... successfully connected to TLM FabricServer !
++=+ XLVIP-INFO: XlTlmMessageLayer::connect():
++=+    Successfully connected this remote client conduit into the TLM fabric server:
++=+        clientId=:remoteSession1
++=+        conduitId=:txCanFrameConduit1
+           localClientConduitHandle=0x62cf4ea874c0
+           remoteServerProxyConduitHandle=0x3bd08230
++=+ XLVIP-INFO: XlTlmMessageLayer::connect():
++=+    Successfully connected this remote client conduit into the TLM fabric server:
++=+        clientId=:remoteSession1
++=+        conduitId=:rxCanFrameConduit1
+           localClientConduitHandle=0x62cf4e8158d0
+           remoteServerProxyConduitHandle=0x3bd070c0
++=+ XLVIP-INFO: XlTlmMessageLayer::disconnectFromServer():
++=+    Disconnecting this remote client from TLM fabric server:
++=+        clientId=:remoteSession1
+make[1]: Leaving directory '/home/ubuntu/Youssef_Yacoub/Line-Follower-Digital-Twin/lineFollowerDt'
+
+Script done on 2026-03-16 17:00:19+00:00 [COMMAND_EXIT_CODE="0"]

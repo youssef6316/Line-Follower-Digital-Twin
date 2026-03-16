@@ -1,0 +1,70 @@
+-N
+0 simulator 1
+x double o 0
+y double o 0
+theta double o 0
+x_true double o 0
+y_true double o 0
+theta_true double o 0
+sim_time double o 0
+path_progress double o 0
+v_cmd double i 0
+omega_cmd double i 0
+-N
+1 controller 1
+x double i 0
+y double i 0
+theta double i 0
+sim_time double i 0
+path_progress double i 0
+v_cmd double o 0
+omega_cmd double o 0
+e_lat double o 0
+e_head double o 0
+-N
+2 visualizer 1
+x double i 0
+y double i 0
+theta double i 0
+x_true double i 0
+y_true double i 0
+theta_true double i 0
+sim_time double i 0
+path_progress double i 0
+v_cmd double i 0
+omega_cmd double i 0
+e_lat double i 0
+e_head double i 0
+-CAN
+10 0 o [x:0:64]
+11 0 o [y:0:64]
+12 0 o [theta:0:64]
+13 0 o [x_true:0:64]
+14 0 o [y_true:0:64]
+15 0 o [theta_true:0:64]
+16 0 o [sim_time:0:64]
+17 0 o [path_progress:0:64]
+18 0 i [v_cmd:0:64]
+19 0 i [omega_cmd:0:64]
+10 1 i [x:0:64]
+11 1 i [y:0:64]
+12 1 i [theta:0:64]
+16 1 i [sim_time:0:64]
+17 1 i [path_progress:0:64]
+18 1 o [v_cmd:0:64]
+19 1 o [omega_cmd:0:64]
+20 1 o [e_lat:0:64]
+21 1 o [e_head:0:64]
+10 2 i [x:0:64]
+11 2 i [y:0:64]
+12 2 i [theta:0:64]
+13 2 i [x_true:0:64]
+14 2 i [y_true:0:64]
+15 2 i [theta_true:0:64]
+16 2 i [sim_time:0:64]
+17 2 i [path_progress:0:64]
+18 2 i [v_cmd:0:64]
+19 2 i [omega_cmd:0:64]
+20 2 i [e_lat:0:64]
+21 2 i [e_head:0:64]
+-END
